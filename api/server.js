@@ -10,7 +10,7 @@ server.use(express.json());
 
 server.use("/api", usersRouter );
 server.get("/", (req, res) => {
-  res.send("Server Running");
+  res.send("Server Running, /API/REGISTER to register a new user (expecting a username, password and role) /API/LOGIN to log in");
 });
 
 module.exports = server;

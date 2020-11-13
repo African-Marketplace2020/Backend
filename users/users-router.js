@@ -4,7 +4,7 @@ const Users = require("./users-model");
 const restrict = require("./users-middleware");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
-
+const { jwtSecret } = require("../secrets/userSecret");
 
 function generateToken(user) {
   const payload = {
@@ -12,7 +12,7 @@ function generateToken(user) {
     username: user.username,
   };
 
-  return jwt.sign(payload, process.env.JWT_SECRET);
+  return jwt.sign(payload, jwtSecret);
 }
 
 router.post("/register", (req, res) => {
@@ -30,7 +30,7 @@ router.post("/register", (req, res) => {
       res.status(500).json(error);
     });
 });
-
+ 
 router.post("/login", (req, res) => {
   let { username, password } = req.body;
   Users.findBy({ username })
