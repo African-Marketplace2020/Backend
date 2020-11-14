@@ -3,8 +3,8 @@ const bcryptjs = require("bcryptjs");
 const Users = require("./users-model");
 const restrict = require("./users-middleware");
 const jwt = require("jsonwebtoken");
-const router = express.Router();
 const { jwtSecret } = require("../secrets/userSecret");
+const router = express.Router();
 
 function generateToken(user) {
   const payload = {
