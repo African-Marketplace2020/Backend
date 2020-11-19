@@ -14,9 +14,6 @@ server.use(express.json());
 server.use(welcomeRouter);
 server.use("/api", usersRouter, itemsRouter );
 
-// server.get("/", (req, res) => {
-//   res.send("Server Running, /API/REGISTER to register a new user (expecting a username, password and role) /API/LOGIN to log in");
-// });
 server.use((err, req, res, next) => {
 	console.log(err)
 	
