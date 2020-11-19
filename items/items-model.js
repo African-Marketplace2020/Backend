@@ -17,9 +17,18 @@ async function add(item) {
 function findById(id) {
   return db("items").where({ id }).first();
 }
+
+function update(changes, id) {
+  return db("items").where({ id }).update(changes);
+}
+function remove(id) {
+  return db("items").where({ id }).del();
+}
 module.exports = {
   add,
   find,
   findBy,
   findById,
+  update,
+  remove,
 };
