@@ -1,6 +1,6 @@
 const express = require("express");
 const Items = require("./items-model");
-const restrict = require("./users-middleware");
+const restrict = require("../users/users-middleware");
 const router = express.Router();
 
 router.get("/items", restrict, (req, res, next) => {
