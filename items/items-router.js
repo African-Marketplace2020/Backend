@@ -13,7 +13,7 @@ router.get("/items", restrict, (req, res, next) => {
     });
 });
 
-router.post("/items", (req, res) => {
+router.post("/items", restrict, (req, res) => {
   let item = req.body;
 
   Items.add(item)
@@ -25,7 +25,7 @@ router.post("/items", (req, res) => {
     });
 });
 
-router.put("/items/:id", (req, res) => {
+router.put("/items/:id", restrict, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -46,7 +46,7 @@ router.put("/items/:id", (req, res) => {
     });
 });
 
-router.delete("/items/:id", (req, res) => {
+router.delete("/items/:id", restrict, (req, res) => {
   const { id } = req.params;
 
   Items.remove(id)
